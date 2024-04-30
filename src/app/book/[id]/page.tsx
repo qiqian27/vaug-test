@@ -89,8 +89,10 @@ export default function Page({ params }: { params: { id: string } }) {
                     </tr>
                 </tbody>
             </table>
+
+            {/* Edited from New Branch  */}
             <Link href="/">
-                <span className="block text-center mt-5 text-blue-600 underline">Back to Home Page</span>
+                <span className="cursor-pointer block text-center mt-5 text-blue-600 underline">Back to Home Page</span>
             </Link>
         </main>
     );
