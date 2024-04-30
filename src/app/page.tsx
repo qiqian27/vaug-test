@@ -32,7 +32,7 @@ const VAug: FC = () => {
 
   const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-GB'); // Change the locale to your desired format
+    return date.toLocaleDateString('en-GB');
   };
 
   return (
@@ -55,11 +55,11 @@ const VAug: FC = () => {
                 </tr>
               </thead>
               <tbody className="text-sm">
-                {/* Map through books and create rows */}
                 {books.map((book, index) => (
                   <tr key={book.id} className="hover:bg-gray-200 cursor-pointer">
-                    {/* Wrap each data cell with Link component except for the No. column */}
-                    <td className="border">{book.id}</td>
+                    <td className="border"><Link href={`/book/${book.id}`}>
+                        <span>{book.id}</span>
+                      </Link></td>
                     <td className="border">
                       <Link href={`/book/${book.id}`}>
                         <span>{book.title}</span>
@@ -98,7 +98,6 @@ const VAug: FC = () => {
                   </tr>
                 ))}
               </tbody>
-
             </table>
           </div>
         </section>

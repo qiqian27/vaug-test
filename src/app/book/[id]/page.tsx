@@ -18,7 +18,6 @@ type Book = {
 };
 
 export default function Page({ params }: { params: { id: string } }) {
-    // Extract the book id from the params
     const { id } = params;
 
     // Fetch the list of books
@@ -31,24 +30,21 @@ export default function Page({ params }: { params: { id: string } }) {
         return data.data;
     });
 
-    // Handle error and loading states
     if (error) return <div>Error fetching data</div>;
     if (!books) return <div>Loading...</div>;
 
-    // Find the book with the specified id
+    // Find the specific book and only show the specific book's details
     const book = books.find(book => book.id === parseInt(id));
 
-    // Handle case where book is not found
     if (!book) return <div>Book not found</div>;
 
     const formatDate = (dateString: string): string => {
         const date = new Date(dateString);
-        return date.toLocaleDateString('en-GB'); // Change the locale to your desired format
+        return date.toLocaleDateString('en-GB');
     };
 
-    const decodedImageLink = book.image.replace(/\\/g, ''); // Removing escape characters
+    const decodedImageLink = book.image.replace(/\\/g, '');
 
-    // Display the book title
     return (
         <main className="px-7">
             <span className="flex justify-center text-5xl mt-5 mb-5">Selected Book</span>
