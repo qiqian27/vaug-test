@@ -20,7 +20,6 @@ type Book = {
 export default function Page({ params }: { params: { id: string } }) {
     const { id } = params;
 
-    // Fetch the list of books
     const { data: books, error } = useSWR<Book[]>(BuildUrl('https://fakerapi.it/api/v1/books'), async (url: string | URL | Request) => {
         const response = await fetch(url);
         if (!response.ok) {
