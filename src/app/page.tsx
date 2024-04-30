@@ -40,7 +40,7 @@ const VAug: FC = () => {
       <main className="px-7">
         <section id="list">
           <span className="flex justify-center text-5xl mt-5 mb-5">Book List</span>
-          <div className="border-2 border-red-500 mb-5">
+          <div className="mb-5">
             <table className="w-full">
               <thead>
                 <tr>
